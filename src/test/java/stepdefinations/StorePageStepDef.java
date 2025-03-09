@@ -4,6 +4,9 @@ import baseClass.DriverManager;
 import io.cucumber.java.en.Given;
 import pages.StorePage;
 
+import java.util.List;
+import java.util.Map;
+
 public class StorePageStepDef {
     StorePage storePage;
     public StorePageStepDef(){
@@ -15,7 +18,7 @@ public class StorePageStepDef {
         storePage.navigateToStorePage();
     }
     @Given("Add the product from the store page")
-    public void add_the_product_from_the_store_page() {
-        storePage.addTheProduct("String productName");
+    public void add_the_product_from_the_store_page(List<String> productData) {
+        storePage.addTheProduct(productData);
     }
 }

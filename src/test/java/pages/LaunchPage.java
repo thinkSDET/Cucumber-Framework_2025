@@ -17,7 +17,7 @@ public class LaunchPage extends BasePage{
     private WebElement userNameInputBox;
     @FindBy (id = "password")
     private WebElement passwordInputBox;
-    @FindBy (id = "//button[@name='login']")
+    @FindBy (xpath = "//button[@name='login']")
     private WebElement loginBtn;
 
     public WebDriver driver;
@@ -32,6 +32,6 @@ public class LaunchPage extends BasePage{
         userNameInputBox.sendKeys(userName);
         passwordInputBox.sendKeys(password);
         loginBtn.click();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://askomdch.com/account/","Please check the url");
+        Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/account/","Please check the url");
     }
 }

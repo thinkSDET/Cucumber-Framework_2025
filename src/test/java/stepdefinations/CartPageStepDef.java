@@ -4,6 +4,9 @@ import baseClass.DriverManager;
 import io.cucumber.java.en.Given;
 import pages.CartPage;
 
+import java.util.List;
+import java.util.Map;
+
 public class CartPageStepDef {
 
     public CartPage cartPage;
@@ -16,7 +19,7 @@ public class CartPageStepDef {
         cartPage.navigateToCartPage();
     }
     @Given("Verify that user can find the added product in cart page")
-    public void verify_that_user_can_find_the_added_product_in_cart_page() {
-        cartPage.verifyAddedProductInCart();
+    public void verify_that_user_can_find_the_added_product_in_cart_page(List<Map<String, String>> cartData) {
+        cartPage.verifyAddedProductInCart(cartData);
     }
 }

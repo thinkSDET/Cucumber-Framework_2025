@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import java.util.List;
+import java.util.Map;
+
 public class StorePage extends BasePage{
 
     @FindBy(xpath = "(//nav[@id='primary-site-navigation']//a[text()='Store'])[1]")
@@ -17,10 +20,13 @@ public class StorePage extends BasePage{
 
     public void navigateToStorePage(){
         storeLink.click();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://askomdch.com/store/","please check the url");
+        Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/store/","please check the url");
+        clearCart();
     }
-    public void addTheProduct(String productName){
-        By addToCartBtn = By.xpath("a[aria-label='Add “" + productName + "” to your cart']");
-        driver.findElement(addToCartBtn).click();
+    public void addTheProduct(List<String> productNames){
+       for(String productName : productNames){
+           By addToCartBtn = By.cssSelector("a[aria-label='Add “" + productName + "” to your cart']");
+           driver.findElement(addToCartBtn).click();
+       }
     }
 }
