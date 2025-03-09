@@ -20,4 +20,8 @@ public class BasePage {
     public void invokeURL(String url){
         driver.get(url);
     }
+
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
 }

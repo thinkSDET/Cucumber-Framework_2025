@@ -16,6 +16,6 @@ public class StorePageStepDef {
     }
     @Given("Add the product from the store page")
     public void add_the_product_from_the_store_page() {
-        storePage.addTheProduct();
+        storePage.addTheProduct("String productName");
     }
 }
