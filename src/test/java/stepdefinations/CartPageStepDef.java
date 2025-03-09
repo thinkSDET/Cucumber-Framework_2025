@@ -1,0 +1,22 @@
+package stepdefinations;
+
+import baseClass.DriverManager;
+import io.cucumber.java.en.Given;
+import pages.CartPage;
+
+public class CartPageStepDef {
+
+    public CartPage cartPage;
+    public CartPageStepDef(){
+        cartPage = new CartPage(DriverManager.getDriver());
+    }
+
+    @Given("Navigate to cart page")
+    public void navigate_to_cart_page() {
+        cartPage.navigateToCartPage();
+    }
+    @Given("Verify that user can find the added product in cart page")
+    public void verify_that_user_can_find_the_added_product_in_cart_page() {
+        cartPage.verifyAddedProductInCart();
+    }
+}
