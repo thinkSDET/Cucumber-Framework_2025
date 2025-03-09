@@ -13,6 +13,6 @@ public class LaunchAppPageStepDef {
 
     @Given("Launch the application with {string} and {string}")
     public void launch_the_application_with_and(String userName, String password) {
-        launchPage.navigateToLaunchPage();
+        launchPage.navigateToLaunchPageAndLogin(userName, password);
     }
 }
