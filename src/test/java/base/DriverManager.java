@@ -11,12 +11,11 @@ public class DriverManager {
 
     public static void invokeDriver() {
         WebDriver driver = BrowserManager.setAndInvokeBrowser("chrome");
-        LoggerUtil.getLogger().info("Thread ID: {}", Thread.currentThread().threadId());
         driverThreadLocal.set(driver);
+        LoggerUtil.info("Driver is initialized");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(ConfigReader.getImplicitWait())));
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        LoggerUtil.getLogger().info("Driver initialized successfully");
     }
 
     public static WebDriver getDriver(){
@@ -27,7 +26,7 @@ public class DriverManager {
         WebDriver driver = driverThreadLocal.get();
         if (driver != null) {
             driver.quit();
-            LoggerUtil.getLogger().info("Driver quit successfully");
+            LoggerUtil.info("Driver is closed");
         }
         driverThreadLocal.remove();
     }

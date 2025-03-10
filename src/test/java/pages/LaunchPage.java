@@ -30,11 +30,11 @@ public class LaunchPage extends BasePage {
     }
     public void launchUrl(){
         invokeURL();
+        LoggerUtil.info("Url is launched");
         waitUntilPageGetsFullyLoaded();
     }
     public void navigateToLaunchPageAndLogin(){
         launchUrl();
-        LoggerUtil.getLogger().info("user has been launched");
         accountLink.click();
         userNameInputBox.sendKeys(ConfigReader.getUserName());
         passwordInputBox.sendKeys(ConfigReader.getPassword());

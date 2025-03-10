@@ -21,7 +21,7 @@ public class BrowserManager {
             case "edge" -> setupEdgeDriver();
             default -> throw new RuntimeException("Please pass the right browser");
         };
-        LoggerUtil.getLogger().info("{}invoked", browser);
+        LoggerUtil.info(browserName + "Invoked");
         return driver;
     }
 
