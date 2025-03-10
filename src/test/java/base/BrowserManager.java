@@ -25,6 +25,8 @@ public class BrowserManager {
 
     private static ChromeDriver setChromeDriver(){
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("--disable-popup-blocking");
         return new ChromeDriver(chromeOptions);
     }
 
