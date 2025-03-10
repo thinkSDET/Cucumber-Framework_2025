@@ -8,15 +8,15 @@ import pages.CartPage;
 
 public class hooks {
 
-    private static WebDriver driver;
 
     @Before
     public void beforeHook(){
-        driver =  DriverManager.invokeDriver();
+       DriverManager.invokeDriver(); // Initialize the driver for the current thread
     }
 
     @After
     public void tearDown(){
-        driver.quit();
+        DriverManager.getDriver().quit(); // Quit the driver for the current thread
+        DriverManager.removeDriver(); // Remove the ThreadLocal instance
     }
 }
