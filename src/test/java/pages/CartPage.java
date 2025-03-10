@@ -51,7 +51,7 @@ public class CartPage extends BasePage {
             if(cartItem>0){
                 moveToAnElement(shoppingCartIcon);
                 clickOnElement(removeItemsFromCart);
-                waitForElementToInVisible(removeItemsFromCart);
+                waitForElementToBeInVisible(removeItemsFromCart);
                 Assert.assertEquals(waitForElementToVisible(clearCartMessage).getText(),"No products in the cart.","Please check cart is not empty");
             }
             else {

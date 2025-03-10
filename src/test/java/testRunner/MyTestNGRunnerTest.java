@@ -5,7 +5,9 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         glue = {"stepdefinations"},
-        features = "src/test/featureFiles"
+        features = "src/test/featureFiles",
+        dryRun = false
+     //   tags = "@Smoke"
 )
 public class MyTestNGRunnerTest  extends AbstractTestNGCucumberTests {
 }

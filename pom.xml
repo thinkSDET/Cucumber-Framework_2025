@@ -37,6 +37,13 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.java}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>7.21.1</version>
+        </dependency>
+
 
 
     </dependencies>

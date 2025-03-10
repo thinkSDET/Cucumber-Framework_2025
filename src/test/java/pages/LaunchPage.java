@@ -26,9 +26,12 @@ public class LaunchPage extends BasePage {
         super(driver);
         this.driver = driver;
     }
-
-    public void navigateToLaunchPageAndLogin(String userName, String password){
+    public void launchUrl(){
         invokeURL("https://askomdch.com/");
+        waitUntilPageGetsFullyLoaded();
+    }
+    public void navigateToLaunchPageAndLogin(String userName, String password){
+        launchUrl();
         accountLink.click();
         userNameInputBox.sendKeys(userName);
         passwordInputBox.sendKeys(password);

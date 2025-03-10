@@ -1,5 +1,6 @@
 package common;
 
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,7 +56,37 @@ public class BasePage {
     public WebElement waitForElementToVisible(WebElement element){
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
-    public void waitForElementToInVisible(WebElement element){
+    public void waitForElementToBeInVisible(WebElement element){
          wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
+    public void safeClick(WebElement element) {
+        try {
+            // First try normal click
+            element.click();
+        } catch (ElementClickInterceptedException e) {
+            System.out.println(1);
+            // If intercepted, try to find and remove common overlay types
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            // Array of common overlay selectors
+            String[] overlaySelectors = {
+                    ".blockUI",
+                    ".overlay",
+                    ".loading-mask",
+                    ".modal-backdrop",
+                    "[class*='overlay']",
+                    "[class*='loader']",
+                    // Add more based on your experience
+            };
+            for (String selector : overlaySelectors) {
+                js.executeScript(
+                        "var elements = document.querySelectorAll('" + selector + "');" +
+                                "for(var i=0; i<elements.length; i++){" +
+                                "    elements[i].remove();" +
+                                "}"
+                );
+            }
+            js.executeScript("arguments[0].click();", element);
+        }
     }
 }
