@@ -1,5 +1,6 @@
 package pages;
 
+import common.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +11,7 @@ import org.testng.Assert;
  *  Email : Testing@gmail.com
  *  Password : Testing@123
  */
-public class LaunchPage extends BasePage{
+public class LaunchPage extends BasePage {
     @FindBy (xpath = "(//nav[@id='primary-site-navigation']//a[text()='Account'])[1]")
     private WebElement accountLink;
     @FindBy (id = "username")
@@ -25,9 +26,12 @@ public class LaunchPage extends BasePage{
         super(driver);
         this.driver = driver;
     }
-
-    public void navigateToLaunchPageAndLogin(String userName, String password){
+    public void launchUrl(){
         invokeURL("https://askomdch.com/");
+        waitUntilPageGetsFullyLoaded();
+    }
+    public void navigateToLaunchPageAndLogin(String userName, String password){
+        launchUrl();
         accountLink.click();
         userNameInputBox.sendKeys(userName);
         passwordInputBox.sendKeys(password);

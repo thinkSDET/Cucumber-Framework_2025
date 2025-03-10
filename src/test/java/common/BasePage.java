@@ -1,5 +1,6 @@
-package pages;
+package common;
 
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,14 +15,6 @@ import java.time.Duration;
 import java.util.Objects;
 
 public class BasePage {
-    @FindBy(xpath = "(//a[@title='View your shopping cart'])[1]//span")
-    private WebElement cartCount;
-    @FindBy(xpath = "(//a[@title='View your shopping cart'])[1]")
-    private WebElement shoppingCartIcon;
-    @FindBy(xpath = "(*//div[@class='widget woocommerce widget_shopping_cart']//div//p)[1]")
-    private WebElement clearCartMessage;
-    @FindBy(xpath = "(//a[@class='remove remove_from_cart_button'])[1]")
-    private WebElement removeItemsFromCart;
 
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -63,25 +56,37 @@ public class BasePage {
     public WebElement waitForElementToVisible(WebElement element){
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
-    public void waitForElementToInVisible(WebElement element){
+    public void waitForElementToBeInVisible(WebElement element){
          wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-    public void clearCart(){
+    public void safeClick(WebElement element) {
         try {
-            int cartItem = Integer.parseInt(cartCount.getText());
-            if(cartItem>0){
-                moveToAnElement(shoppingCartIcon);
-                clickOnElement(removeItemsFromCart);
-                waitForElementToInVisible(removeItemsFromCart);
-                Assert.assertEquals(waitForElementToVisible(clearCartMessage).getText(),"No products in the cart.","Please check cart is not empty");
+            // First try normal click
+            element.click();
+        } catch (ElementClickInterceptedException e) {
+            System.out.println(1);
+            // If intercepted, try to find and remove common overlay types
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            // Array of common overlay selectors
+            String[] overlaySelectors = {
+                    ".blockUI",
+                    ".overlay",
+                    ".loading-mask",
+                    ".modal-backdrop",
+                    "[class*='overlay']",
+                    "[class*='loader']",
+                    // Add more based on your experience
+            };
+            for (String selector : overlaySelectors) {
+                js.executeScript(
+                        "var elements = document.querySelectorAll('" + selector + "');" +
+                                "for(var i=0; i<elements.length; i++){" +
+                                "    elements[i].remove();" +
+                                "}"
+                );
             }
-            else {
-                System.out.println("Cart is already empty");
-            }
-        }catch (Exception exception){
-           exception.printStackTrace();
+            js.executeScript("arguments[0].click();", element);
         }
-
     }
 }

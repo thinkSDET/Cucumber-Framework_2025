@@ -1,5 +1,6 @@
 package pages;
 
+import common.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,21 +8,21 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import java.util.List;
-import java.util.Map;
 
-public class StorePage extends BasePage{
-
+public class StorePage extends BasePage {
+    CartPage cartPage;
     @FindBy(xpath = "(//nav[@id='primary-site-navigation']//a[text()='Store'])[1]")
     private WebElement storeLink;
 
     public StorePage(WebDriver driver) {
         super(driver);
+        cartPage = new CartPage(driver);
     }
 
     public void navigateToStorePage(){
         storeLink.click();
         Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/store/","please check the url");
-        clearCart();
+        cartPage.clearCart();
     }
     public void addTheProduct(List<String> productNames){
        for(String productName : productNames){
