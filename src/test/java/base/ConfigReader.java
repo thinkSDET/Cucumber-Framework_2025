@@ -14,7 +14,7 @@ public class ConfigReader {
 
     static {
         synchronized (ConfigReader.class) {  // Ensures only one thread loads the properties
-            try (FileInputStream file = new FileInputStream("src\\test\\resources\\properties")) {
+            try (FileInputStream file = new FileInputStream("src\\test\\resources\\properties\\config.properties")) {
                 properties.load(file);
             } catch (IOException e) {
                 throw new RuntimeException("Failed to load configuration file: " + e.getMessage());
