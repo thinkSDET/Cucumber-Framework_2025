@@ -1,11 +1,10 @@
 package stepdefinations;
 
-import baseClass.DriverManager;
+import base.DriverManager;
 import io.cucumber.java.en.Given;
 import pages.StorePage;
 
 import java.util.List;
-import java.util.Map;
 
 public class StorePageStepDef {
     StorePage storePage;

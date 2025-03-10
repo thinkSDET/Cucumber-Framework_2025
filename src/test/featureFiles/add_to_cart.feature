@@ -5,7 +5,7 @@
 Feature: Add to cart
 
   Scenario: Add one quantity from Store
-    * Launch the application with 'Testing' and 'Testing@123'
+    * Launch the application with valid credentials
     * Navigate to the store page
     * Add the product from the store page
       | Anchor Bracelet |

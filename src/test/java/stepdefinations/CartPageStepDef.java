@@ -1,6 +1,6 @@
 package stepdefinations;
 
-import baseClass.DriverManager;
+import base.DriverManager;
 import io.cucumber.java.en.Given;
 import pages.CartPage;
 

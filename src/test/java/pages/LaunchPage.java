@@ -1,5 +1,6 @@
 package pages;
 
+import base.ConfigReader;
 import common.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,14 +28,14 @@ public class LaunchPage extends BasePage {
         this.driver = driver;
     }
     public void launchUrl(){
-        invokeURL("https://askomdch.com/");
+        invokeURL();
         waitUntilPageGetsFullyLoaded();
     }
-    public void navigateToLaunchPageAndLogin(String userName, String password){
+    public void navigateToLaunchPageAndLogin(){
         launchUrl();
         accountLink.click();
-        userNameInputBox.sendKeys(userName);
-        passwordInputBox.sendKeys(password);
+        userNameInputBox.sendKeys(ConfigReader.getUserName());
+        passwordInputBox.sendKeys(ConfigReader.getPassword());
         loginBtn.click();
         Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/account/","Please check the url");
     }
