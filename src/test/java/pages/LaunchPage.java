@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utils.LoggerUtil;
 
 /**
  *  userName : Testing
@@ -33,6 +34,7 @@ public class LaunchPage extends BasePage {
     }
     public void navigateToLaunchPageAndLogin(){
         launchUrl();
+        LoggerUtil.getLogger().info("user has been launched");
         accountLink.click();
         userNameInputBox.sendKeys(ConfigReader.getUserName());
         passwordInputBox.sendKeys(ConfigReader.getPassword());

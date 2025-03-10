@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utils.LoggerUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class CartPage extends BasePage {
     }
 
     public void verifyAddedProductInCart(List<Map<String, String>> cartData){
-        System.out.println("This is from add to cart-->"+ productNameFld.getText());
+        LoggerUtil.getLogger().info("This is from add to cart-->{}", productNameFld.getText());
         Assert.assertEquals(cartData.getFirst().get("Product"),productNameFld.getText());
         Assert.assertEquals(cartData.getFirst().get("Quantity"),productQuantityFld.getDomProperty("value"));
     }

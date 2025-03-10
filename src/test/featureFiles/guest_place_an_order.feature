@@ -1,6 +1,6 @@
 Feature: Place an order
 
-  @Smoke
+
   Scenario: using default payment option
     * Launch the application as guest user
     * Navigate to the store page

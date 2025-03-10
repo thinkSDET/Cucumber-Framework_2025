@@ -7,6 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.LoggerUtil;
 
 public class BrowserManager {
 
@@ -20,6 +21,7 @@ public class BrowserManager {
             case "edge" -> setupEdgeDriver();
             default -> throw new RuntimeException("Please pass the right browser");
         };
+        LoggerUtil.getLogger().info("{}invoked", browser);
         return driver;
     }
 

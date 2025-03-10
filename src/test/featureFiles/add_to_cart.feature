@@ -3,7 +3,7 @@
 # Press Ctrl + Alt + L (Windows/Linux)
 #
 Feature: Add to cart
-
+  @Smoke
   Scenario: Add one quantity from Store
     * Launch the application with valid credentials
     * Navigate to the store page
