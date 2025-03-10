@@ -22,6 +22,7 @@ public class OrderPage extends BasePage {
 
     public void verifyTheOrderDetailsPage(List<Map<String,String>> data){
         waitUntilPageGetsFullyLoaded();
+        System.out.println("This is from orders page-->"+ productName.getText());
         Assert.assertEquals(productName.getText(),data.getFirst().get("productName"));
         Assert.assertEquals(subtotal.getText(),data.getFirst().get("subtotal"));
         Assert.assertEquals(paymentMethod.getText(),data.getFirst().get("paymentMethod"));
