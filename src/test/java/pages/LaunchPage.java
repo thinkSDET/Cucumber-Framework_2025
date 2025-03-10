@@ -1,5 +1,6 @@
 package pages;
 
+import common.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +11,7 @@ import org.testng.Assert;
  *  Email : Testing@gmail.com
  *  Password : Testing@123
  */
-public class LaunchPage extends BasePage{
+public class LaunchPage extends BasePage {
     @FindBy (xpath = "(//nav[@id='primary-site-navigation']//a[text()='Account'])[1]")
     private WebElement accountLink;
     @FindBy (id = "username")

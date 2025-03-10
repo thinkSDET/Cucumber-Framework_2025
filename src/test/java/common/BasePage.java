@@ -1,4 +1,4 @@
-package pages;
+package common;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,14 +14,6 @@ import java.time.Duration;
 import java.util.Objects;
 
 public class BasePage {
-    @FindBy(xpath = "(//a[@title='View your shopping cart'])[1]//span")
-    private WebElement cartCount;
-    @FindBy(xpath = "(//a[@title='View your shopping cart'])[1]")
-    private WebElement shoppingCartIcon;
-    @FindBy(xpath = "(*//div[@class='widget woocommerce widget_shopping_cart']//div//p)[1]")
-    private WebElement clearCartMessage;
-    @FindBy(xpath = "(//a[@class='remove remove_from_cart_button'])[1]")
-    private WebElement removeItemsFromCart;
 
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -65,23 +57,5 @@ public class BasePage {
     }
     public void waitForElementToInVisible(WebElement element){
          wait.until(ExpectedConditions.invisibilityOf(element));
-    }
-
-    public void clearCart(){
-        try {
-            int cartItem = Integer.parseInt(cartCount.getText());
-            if(cartItem>0){
-                moveToAnElement(shoppingCartIcon);
-                clickOnElement(removeItemsFromCart);
-                waitForElementToInVisible(removeItemsFromCart);
-                Assert.assertEquals(waitForElementToVisible(clearCartMessage).getText(),"No products in the cart.","Please check cart is not empty");
-            }
-            else {
-                System.out.println("Cart is already empty");
-            }
-        }catch (Exception exception){
-           exception.printStackTrace();
-        }
-
     }
 }
