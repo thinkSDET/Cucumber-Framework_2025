@@ -1,10 +1,8 @@
 package stepdefinations.hooks;
 
-import baseClass.DriverManager;
+import base.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.WebDriver;
-import pages.CartPage;
 
 public class hooks {
 

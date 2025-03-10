@@ -1,6 +1,8 @@
-package baseClass;
+package base;
 
 import org.openqa.selenium.WebDriver;
+
+import java.time.Duration;
 
 public class DriverManager {
 
@@ -10,6 +12,7 @@ public class DriverManager {
         WebDriver driver = BrowserManager.setAndInvokeBrowser("chrome");
         System.out.println("Thread ID: " + Thread.currentThread().threadId());
         driverThreadLocal.set(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(ConfigReader.getImplicitWait())));
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
     }

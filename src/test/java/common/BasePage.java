@@ -1,5 +1,6 @@
 package common;
 
+import base.ConfigReader;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -27,8 +28,8 @@ public class BasePage {
         PageFactory.initElements(driver,this);
     }
 
-    public void invokeURL(String url){
-        driver.get(url);
+    public void invokeURL(){
+        driver.get(ConfigReader.getBaseUrl());
     }
 
     public String getCurrentUrl(){
