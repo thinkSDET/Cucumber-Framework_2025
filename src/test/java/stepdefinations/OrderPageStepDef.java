@@ -1,6 +1,7 @@
 package stepdefinations;
 
 import base.DriverManager;
+import common.TestContext;
 import io.cucumber.java.en.Given;
 import pages.OrderPage;
 
@@ -9,9 +10,9 @@ import java.util.Map;
 
 public class OrderPageStepDef {
 
-    OrderPage orderPage;
-    public OrderPageStepDef(){
-        orderPage = new OrderPage(DriverManager.getDriver());
+    private final OrderPage orderPage;
+    public OrderPageStepDef(TestContext context){
+        this.orderPage = context.getOrderPage();
     }
 
     @Given("Verify the order details on order page")

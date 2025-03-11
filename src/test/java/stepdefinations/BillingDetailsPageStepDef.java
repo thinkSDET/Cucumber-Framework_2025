@@ -2,6 +2,7 @@ package stepdefinations;
 
 import base.DriverManager;
 
+import common.TestContext;
 import io.cucumber.java.en.Given;
 import pages.BillingDetailsPage;
 
@@ -9,9 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 public class BillingDetailsPageStepDef {
-    BillingDetailsPage billingDetailsPage;
-    public BillingDetailsPageStepDef(){
-        billingDetailsPage = new BillingDetailsPage(DriverManager.getDriver());
+    private final BillingDetailsPage billingDetailsPage;
+    public BillingDetailsPageStepDef(TestContext context){
+        this.billingDetailsPage = context.getBillingDetailsPage(); // Injected Dependency
     }
     @Given("Fill the my billing details page")
     public void fill_the_my_billing_details_page(List<Map<String, String>> dataTable) {

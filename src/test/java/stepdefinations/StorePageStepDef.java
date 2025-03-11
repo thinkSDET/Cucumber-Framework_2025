@@ -1,15 +1,16 @@
 package stepdefinations;
 
 import base.DriverManager;
+import common.TestContext;
 import io.cucumber.java.en.Given;
 import pages.StorePage;
 
 import java.util.List;
 
 public class StorePageStepDef {
-    StorePage storePage;
-    public StorePageStepDef(){
-        storePage = new StorePage(DriverManager.getDriver());
+    private final StorePage storePage;
+    public StorePageStepDef(TestContext context){
+        this.storePage = context.getStorePage();
     }
 
     @Given("Navigate to the store page")

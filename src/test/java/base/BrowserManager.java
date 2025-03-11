@@ -27,6 +27,9 @@ public class BrowserManager {
 
     private static ChromeDriver setChromeDriver(){
         ChromeOptions chromeOptions = new ChromeOptions();
+        if(ConfigManager.getHeadLessMode()){
+            chromeOptions.addArguments("--headless=new");  // Run in headless mode
+        }
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-popup-blocking");
         return new ChromeDriver(chromeOptions);
