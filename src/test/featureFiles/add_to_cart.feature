@@ -2,7 +2,7 @@
 # Open the .feature file.
 # Press Ctrl + Alt + L (Windows/Linux)
 #
-Feature: Add to cart
+Feature: This feature file is validating the add to cart functionality.
   @Smoke
   Scenario: Add one quantity from Store
     * Launch the application with valid credentials

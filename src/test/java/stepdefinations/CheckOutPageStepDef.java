@@ -5,8 +5,8 @@ import pages.CheckOutPage;
 
 public class CheckOutPageStepDef {
     private final CheckOutPage checkOutPage;
-    public CheckOutPageStepDef(PageObjectManager context){
-        this.checkOutPage = context.getCheckOutPage();
+    public CheckOutPageStepDef(PageObjectManager pageObjectManager){
+        this.checkOutPage = pageObjectManager.getCheckOutPage();
     }
     @Given("Navigate to checkout page")
     public void navigate_to_checkout_page() {

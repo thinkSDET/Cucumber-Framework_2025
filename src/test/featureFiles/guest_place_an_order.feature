@@ -1,4 +1,4 @@
-Feature: Place an order
+Feature: This feature file is verifying the place the orders.
 
 
   Scenario: using default payment option

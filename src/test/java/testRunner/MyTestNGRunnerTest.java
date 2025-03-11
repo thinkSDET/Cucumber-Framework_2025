@@ -7,8 +7,8 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         glue = {"stepdefinations"},
         features = "src/test/featureFiles",
-       // dryRun = false
-        tags = "@Smoke"
+        dryRun = false
+       // tags = "@Smoke"
 )
 public class MyTestNGRunnerTest  extends AbstractTestNGCucumberTests {
 

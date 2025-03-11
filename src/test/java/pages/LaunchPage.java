@@ -1,12 +1,11 @@
 package pages;
 
 import testBaseSetup.ConfigReader;
-import testBaseSetup.common.BasePage;
+import pages.basePage.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import testBaseSetup.utils.LoggerUtil;
 
 /**
  *  userName : Testing
