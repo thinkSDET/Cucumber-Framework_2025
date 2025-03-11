@@ -1,4 +1,4 @@
-package testBaseSetup.common;
+package pages.basePage;
 
 import testBaseSetup.ConfigReader;
 import org.openqa.selenium.ElementClickInterceptedException;

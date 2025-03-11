@@ -8,7 +8,6 @@ import pages.*;
  * This class acts as a container for page objects, ensuring dependency injection.
  */
 public class PageObjectManager {
-    private final DriverManager driverManager;
     private final BillingDetailsPage billingDetailsPage;
     private final CartPage cartPage;
     private final CheckOutPage checkOutPage;
@@ -18,7 +17,6 @@ public class PageObjectManager {
 
 
     public PageObjectManager(DriverManager driverManager) {
-        this.driverManager = driverManager;
         this.billingDetailsPage = new BillingDetailsPage(driverManager.getDriver());
         this.cartPage = new CartPage(driverManager.getDriver());
         this.launchPage = new LaunchPage(driverManager.getDriver());

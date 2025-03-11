@@ -1,6 +1,6 @@
 package pages;
 
-import testBaseSetup.common.BasePage;
+import pages.basePage.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
