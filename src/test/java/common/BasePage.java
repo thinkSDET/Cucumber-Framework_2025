@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import utils.LoggerUtil;
 
 import java.time.Duration;
 import java.util.Objects;
@@ -63,31 +64,42 @@ public class BasePage {
 
     public void safeClick(WebElement element) {
         try {
-            // First try normal click
+            // Attempt normal click
             element.click();
         } catch (ElementClickInterceptedException e) {
-            System.out.println(1);
-            // If intercepted, try to find and remove common overlay types
+          //  LoggerUtil.warn("Click intercepted, handling overlays...");
+
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            // Array of common overlay selectors
+
+            // Define common overlay selectors
             String[] overlaySelectors = {
                     ".blockUI",
                     ".overlay",
                     ".loading-mask",
                     ".modal-backdrop",
                     "[class*='overlay']",
-                    "[class*='loader']",
-                    // Add more based on your experience
+                    "[class*='loader']"
             };
+
             for (String selector : overlaySelectors) {
-                js.executeScript(
-                        "var elements = document.querySelectorAll('" + selector + "');" +
-                                "for(var i=0; i<elements.length; i++){" +
-                                "    elements[i].remove();" +
-                                "}"
-                );
+                try {
+                    String script = String.format(
+                            "var elements = document.querySelectorAll('%s');" +
+                                    "elements.forEach(el => el.remove());", selector
+                    );
+                    js.executeScript(script);
+                    LoggerUtil.info("Removed overlay: " + selector);
+                } catch (Exception jsError) {
+                    LoggerUtil.error("JavaScript error while removing overlay: " + selector, jsError);
+                }
             }
-            js.executeScript("arguments[0].click();", element);
+
+            try {
+                js.executeScript("arguments[0].click();", element);
+                LoggerUtil.info("Clicked element using JavaScript.");
+            } catch (Exception jsClickError) {
+                LoggerUtil.error("JavaScript error while clicking element.", jsClickError);
+            }
         }
-    }
+}
 }

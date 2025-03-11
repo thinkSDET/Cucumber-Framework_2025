@@ -15,6 +15,7 @@
         <cucumber.java>7.21.1</cucumber.java>
         <cucumber.testng>7.21.1</cucumber.testng>
         <selenium.java>4.29.0</selenium.java>
+        <log4j.configurationFile>src/test/resources/log4j2.xml</log4j.configurationFile>
     </properties>
 
     <dependencies>
