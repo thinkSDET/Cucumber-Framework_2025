@@ -1,12 +1,12 @@
 package common;
 
-import base.DriverManager;
+import testBaseSetup.DriverManager;
 import pages.*;
 
 /**
  * This class acts as a container for page objects, ensuring dependency injection.
  */
-public class TestContext {
+public class PageObjectManager {
 
     private final BillingDetailsPage billingDetailsPage;
     private final CartPage cartPage;
@@ -16,7 +16,7 @@ public class TestContext {
     private final StorePage storePage;
 
 
-    public TestContext() {
+    public PageObjectManager() {
         this.billingDetailsPage = new BillingDetailsPage(DriverManager.getDriver());
         this.cartPage = new CartPage(DriverManager.getDriver());
         this.launchPage = new LaunchPage(DriverManager.getDriver());

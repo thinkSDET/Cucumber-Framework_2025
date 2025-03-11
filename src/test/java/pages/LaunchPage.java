@@ -1,6 +1,6 @@
 package pages;
 
-import base.ConfigReader;
+import testBaseSetup.ConfigReader;
 import common.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

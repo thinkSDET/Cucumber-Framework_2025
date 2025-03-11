@@ -1,4 +1,4 @@
-package base;
+package testBaseSetup;
 
 import org.openqa.selenium.WebDriver;
 import utils.LoggerUtil;

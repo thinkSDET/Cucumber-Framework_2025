@@ -1,7 +1,6 @@
 package stepdefinations;
 
-import base.DriverManager;
-import common.TestContext;
+import common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.StorePage;
 
@@ -9,7 +8,7 @@ import java.util.List;
 
 public class StorePageStepDef {
     private final StorePage storePage;
-    public StorePageStepDef(TestContext context){
+    public StorePageStepDef(PageObjectManager context){
         this.storePage = context.getStorePage();
     }
 

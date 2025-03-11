@@ -1,8 +1,6 @@
 package stepdefinations;
 
-import base.DriverManager;
-
-import common.TestContext;
+import common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.BillingDetailsPage;
 
@@ -11,7 +9,7 @@ import java.util.Map;
 
 public class BillingDetailsPageStepDef {
     private final BillingDetailsPage billingDetailsPage;
-    public BillingDetailsPageStepDef(TestContext context){
+    public BillingDetailsPageStepDef(PageObjectManager context){
         this.billingDetailsPage = context.getBillingDetailsPage(); // Injected Dependency
     }
     @Given("Fill the my billing details page")

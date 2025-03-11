@@ -1,14 +1,13 @@
 package stepdefinations;
 
-import base.DriverManager;
-import common.TestContext;
+import common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.LaunchPage;
 
 public class LaunchAppPageStepDef {
 
     private final LaunchPage launchPage;
-    public LaunchAppPageStepDef(TestContext context) {
+    public LaunchAppPageStepDef(PageObjectManager context) {
         this.launchPage = context.getLaunchPage();
     }
 

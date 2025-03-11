@@ -1,7 +1,6 @@
 package stepdefinations;
 
-import base.DriverManager;
-import common.TestContext;
+import common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.OrderPage;
 
@@ -11,7 +10,7 @@ import java.util.Map;
 public class OrderPageStepDef {
 
     private final OrderPage orderPage;
-    public OrderPageStepDef(TestContext context){
+    public OrderPageStepDef(PageObjectManager context){
         this.orderPage = context.getOrderPage();
     }
 

@@ -1,7 +1,6 @@
 package stepdefinations;
 
-import base.DriverManager;
-import common.TestContext;
+import common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.CartPage;
 
@@ -11,7 +10,7 @@ import java.util.Map;
 public class CartPageStepDef {
 
     private final CartPage cartPage;
-    public CartPageStepDef(TestContext context){
+    public CartPageStepDef(PageObjectManager context){
         this.cartPage = context.getCartPage();
     }
 
