@@ -1,6 +1,6 @@
 package stepdefinations;
 
-import base.DriverManager;
+import testBaseSetup.common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.CartPage;
 
@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class CartPageStepDef {
 
-    public CartPage cartPage;
-    public CartPageStepDef(){
-        cartPage = new CartPage(DriverManager.getDriver());
+    private final CartPage cartPage;
+    public CartPageStepDef(PageObjectManager context){
+        this.cartPage = context.getCartPage();
     }
 
     @Given("Navigate to cart page")

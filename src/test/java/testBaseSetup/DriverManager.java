@@ -1,7 +1,7 @@
-package base;
+package testBaseSetup;
 
 import org.openqa.selenium.WebDriver;
-import utils.LoggerUtil;
+import testBaseSetup.utils.LoggerUtil;
 
 import java.time.Duration;
 
@@ -10,7 +10,7 @@ public class DriverManager {
     public static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
     public static void invokeDriver() {
-        WebDriver driver = BrowserManager.setAndInvokeBrowser("chrome");
+        WebDriver driver = BrowserManager.setAndInvokeBrowser(ConfigManager.getBrowser());
         driverThreadLocal.set(driver);
         LoggerUtil.info("Driver is initialized");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(ConfigReader.getImplicitWait())));

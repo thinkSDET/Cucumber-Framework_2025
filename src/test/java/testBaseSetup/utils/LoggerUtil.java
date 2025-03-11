@@ -1,4 +1,4 @@
-package utils;
+package testBaseSetup.utils;
 
 import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;
@@ -106,6 +106,18 @@ public class LoggerUtil {
         Logger logger = threadLocalLogger.get();
         if (logger != null) {
             logger.error(message, throwable);
+        }
+    }
+
+    /**
+     * Logs an error message.
+     *
+     * @param message   The message to log.
+     */
+    public static void error(String message) {
+        Logger logger = threadLocalLogger.get();
+        if (logger != null) {
+            logger.error(message);
         }
     }
 

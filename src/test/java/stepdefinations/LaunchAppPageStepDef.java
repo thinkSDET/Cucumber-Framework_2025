@@ -1,14 +1,14 @@
 package stepdefinations;
 
-import base.DriverManager;
+import testBaseSetup.common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.LaunchPage;
 
 public class LaunchAppPageStepDef {
 
-    protected LaunchPage launchPage;
-    public LaunchAppPageStepDef() {
-        this.launchPage = new LaunchPage(DriverManager.getDriver());
+    private final LaunchPage launchPage;
+    public LaunchAppPageStepDef(PageObjectManager context) {
+        this.launchPage = context.getLaunchPage();
     }
 
     @Given("Launch the application with valid credentials")
