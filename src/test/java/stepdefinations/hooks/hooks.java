@@ -1,15 +1,22 @@
 package stepdefinations.hooks;
 
-import testBaseSetup.DriverManager;
+import org.openqa.selenium.WebDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.picocontainer.DefaultPicoContainer;
+import org.picocontainer.PicoContainer;
+import org.picocontainer.annotations.Inject;
+import testBaseSetup.DriverManager;
+import testBaseSetup.common.PageObjectManager;
 import testBaseSetup.utils.LoggerUtil;
 
 public class hooks {
+    private final DriverManager driverManager;
 
-
-
+    public hooks(DriverManager driverManager) {
+        this.driverManager = driverManager;
+    }
     @Before(order = 1)
     public void setupLogger(Scenario scenario) {
         LoggerUtil.initializeLogger(scenario);
@@ -17,14 +24,11 @@ public class hooks {
 
     @Before(order = 2)
     public void setupDriver() {
-        DriverManager.invokeDriver();
-        LoggerUtil.info("- Initializing the browser: 'chrome'");
+        driverManager.getDriver();
     }
 
     @After
-    public void tearDown(){
-        LoggerUtil.info("Closing the driver...");
-        DriverManager.getDriver().quit(); // Quit the driver for the current thread
-        DriverManager.removeDriver(); // Remove the ThreadLocal instance
+    public void tearDown() {
+        driverManager.quitDriver();
     }
 }

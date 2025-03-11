@@ -10,8 +10,8 @@ import java.util.Map;
 public class CartPageStepDef {
 
     private final CartPage cartPage;
-    public CartPageStepDef(PageObjectManager context){
-        this.cartPage = context.getCartPage();
+    public CartPageStepDef(PageObjectManager pageObjectManager){
+        this.cartPage = pageObjectManager.getCartPage();
     }
 
     @Given("Navigate to cart page")

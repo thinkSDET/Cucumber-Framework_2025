@@ -7,8 +7,8 @@ import pages.LaunchPage;
 public class LaunchAppPageStepDef {
 
     private final LaunchPage launchPage;
-    public LaunchAppPageStepDef(PageObjectManager context) {
-        this.launchPage = context.getLaunchPage();
+    public LaunchAppPageStepDef(PageObjectManager pageObjectManager) {
+        this.launchPage = pageObjectManager.getLaunchPage();
     }
 
     @Given("Launch the application with valid credentials")

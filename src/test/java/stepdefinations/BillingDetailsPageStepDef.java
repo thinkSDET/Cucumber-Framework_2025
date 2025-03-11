@@ -9,8 +9,9 @@ import java.util.Map;
 
 public class BillingDetailsPageStepDef {
     private final BillingDetailsPage billingDetailsPage;
-    public BillingDetailsPageStepDef(PageObjectManager context){
-        this.billingDetailsPage = context.getBillingDetailsPage(); // Injected Dependency
+
+    public BillingDetailsPageStepDef(PageObjectManager pageObjectManager) {
+        this.billingDetailsPage = pageObjectManager.getBillingDetailsPage();
     }
     @Given("Fill the my billing details page")
     public void fill_the_my_billing_details_page(List<Map<String, String>> dataTable) {

@@ -8,8 +8,8 @@ import java.util.List;
 
 public class StorePageStepDef {
     private final StorePage storePage;
-    public StorePageStepDef(PageObjectManager context){
-        this.storePage = context.getStorePage();
+    public StorePageStepDef(PageObjectManager pageObjectManager){
+        this.storePage = pageObjectManager.getStorePage();
     }
 
     @Given("Navigate to the store page")

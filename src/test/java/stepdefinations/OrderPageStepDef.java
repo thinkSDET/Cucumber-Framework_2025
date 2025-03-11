@@ -10,8 +10,8 @@ import java.util.Map;
 public class OrderPageStepDef {
 
     private final OrderPage orderPage;
-    public OrderPageStepDef(PageObjectManager context){
-        this.orderPage = context.getOrderPage();
+    public OrderPageStepDef(PageObjectManager pageObjectManager){
+        this.orderPage = pageObjectManager.getOrderPage();
     }
 
     @Given("Verify the order details on order page")
