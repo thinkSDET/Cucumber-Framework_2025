@@ -1,4 +1,4 @@
-package common;
+package testBaseSetup.common;
 
 import testBaseSetup.ConfigReader;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.LoggerUtil;
+import testBaseSetup.utils.LoggerUtil;
 
 import java.time.Duration;
 import java.util.Objects;
@@ -69,7 +69,7 @@ public class BasePage {
 
             JavascriptExecutor js = (JavascriptExecutor) driver;
 
-            // Define common overlay selectors
+            // Define testBaseSetup.common overlay selectors
             String[] overlaySelectors = {
                     ".blockUI",
                     ".overlay",

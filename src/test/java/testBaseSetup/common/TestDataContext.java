@@ -1,4 +1,4 @@
-package common;
+package testBaseSetup.common;
 
 import java.util.HashMap;
 import java.util.Map;

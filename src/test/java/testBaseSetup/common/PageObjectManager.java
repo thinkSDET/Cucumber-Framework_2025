@@ -1,4 +1,4 @@
-package common;
+package testBaseSetup.common;
 
 import testBaseSetup.DriverManager;
 import pages.*;

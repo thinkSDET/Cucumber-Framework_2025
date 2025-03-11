@@ -1,7 +1,7 @@
 package testBaseSetup;
 
 import org.openqa.selenium.WebDriver;
-import utils.LoggerUtil;
+import testBaseSetup.utils.LoggerUtil;
 
 import java.time.Duration;
 

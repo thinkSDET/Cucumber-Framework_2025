@@ -1,4 +1,4 @@
-package utils;
+package testBaseSetup.utils;
 
 import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;

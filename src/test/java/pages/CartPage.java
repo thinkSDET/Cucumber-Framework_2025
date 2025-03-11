@@ -1,11 +1,11 @@
 package pages;
 
-import common.BasePage;
+import testBaseSetup.common.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import utils.LoggerUtil;
+import testBaseSetup.utils.LoggerUtil;
 
 import java.util.List;
 import java.util.Map;

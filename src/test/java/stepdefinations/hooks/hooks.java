@@ -4,7 +4,7 @@ import testBaseSetup.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import utils.LoggerUtil;
+import testBaseSetup.utils.LoggerUtil;
 
 public class hooks {
 
