@@ -30,7 +30,6 @@ public class LaunchPage extends BasePage {
     }
     public void launchUrl(){
         invokeURL();
-        LoggerUtil.info("Url is launched");
         waitUntilPageGetsFullyLoaded();
     }
     public void navigateToLaunchPageAndLogin(){

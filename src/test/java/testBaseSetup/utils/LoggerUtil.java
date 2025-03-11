@@ -110,6 +110,18 @@ public class LoggerUtil {
     }
 
     /**
+     * Logs an error message.
+     *
+     * @param message   The message to log.
+     */
+    public static void error(String message) {
+        Logger logger = threadLocalLogger.get();
+        if (logger != null) {
+            logger.error(message);
+        }
+    }
+
+    /**
      * Extracts the feature name from the scenario URI.
      *
      * @param scenario The Cucumber scenario object.

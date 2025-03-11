@@ -1,4 +1,6 @@
 package testBaseSetup;
+import testBaseSetup.utils.LoggerUtil;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -26,8 +28,35 @@ public class ConfigReader {
     }
 
     public static String getBaseUrl() {
-        return getProperty("url");
+        String env = System.getProperty("ENV"); // Read from System Properties first
+        if (env == null || env.isEmpty()) {
+            env = getProperty("ENV"); // Fallback to config.properties if not set
+        }
+
+        if (env == null || env.isEmpty()) {
+            LoggerUtil.error("ENV property is missing. Please provide a valid environment.");
+        }
+
+        String baseUrl = "";
+        switch (env.toLowerCase()) {
+            case "qa":
+                baseUrl = getProperty("qa_env_url");
+                LoggerUtil.info("Launched the QA URL: " + baseUrl);
+                break;
+            case "preprod":
+                baseUrl = getProperty("preprod_env_url");
+                LoggerUtil.info("Launched the PREPROD URL: " + baseUrl);
+                break;
+            case "prod":
+                baseUrl = getProperty("prod_env_url");
+                LoggerUtil.info("Launched the PROD URL: " + baseUrl);
+                break;
+            default:
+                LoggerUtil.error("Invalid ENV value provided: [" + env + "]");
+        }
+        return baseUrl;
     }
+
     public static String getImplicitWait() {
         return getProperty("implicitWait");
     }
