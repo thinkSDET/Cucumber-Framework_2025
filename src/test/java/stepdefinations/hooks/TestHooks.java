@@ -1,20 +1,15 @@
 package stepdefinations.hooks;
 
-import org.openqa.selenium.WebDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.picocontainer.DefaultPicoContainer;
-import org.picocontainer.PicoContainer;
-import org.picocontainer.annotations.Inject;
 import testBaseSetup.DriverManager;
-import testBaseSetup.common.PageObjectManager;
 import testBaseSetup.utils.LoggerUtil;
 
-public class hooks {
+public class TestHooks {
     private final DriverManager driverManager;
 
-    public hooks(DriverManager driverManager) {
+    public TestHooks(DriverManager driverManager) {
         this.driverManager = driverManager;
     }
     @Before(order = 1)
