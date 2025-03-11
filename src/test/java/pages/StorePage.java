@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utils.LoggerUtil;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class StorePage extends BasePage {
 
     public void navigateToStorePage(){
         storeLink.click();
+        LoggerUtil.info(storeLink + "clicked");
         Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/store/","please check the url");
         cartPage.clearCart();
     }

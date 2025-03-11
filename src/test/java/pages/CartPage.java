@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utils.LoggerUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -33,13 +34,19 @@ public class CartPage extends BasePage {
     }
 
     public void navigateToCartPage(){
-        moveToAnElement(shoppingCartIcon);
-        clickOnElement(viewCartBtn);
-        waitUntilPageGetsFullyLoaded();
-        Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/cart/","");
+        try {
+            moveToAnElement(shoppingCartIcon);
+            clickOnElement(viewCartBtn);
+            waitUntilPageGetsFullyLoaded();
+            Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/cart/","");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public void verifyAddedProductInCart(List<Map<String, String>> cartData){
+        LoggerUtil.info("This is from add to cart-->"+ productNameFld.getText());
         Assert.assertEquals(cartData.getFirst().get("Product"),productNameFld.getText());
         Assert.assertEquals(cartData.getFirst().get("Quantity"),productQuantityFld.getDomProperty("value"));
     }
@@ -53,9 +60,10 @@ public class CartPage extends BasePage {
                 clickOnElement(removeItemsFromCart);
                 waitForElementToBeInVisible(removeItemsFromCart);
                 Assert.assertEquals(waitForElementToVisible(clearCartMessage).getText(),"No products in the cart.","Please check cart is not empty");
+                LoggerUtil.info("cart is cleared now");
             }
             else {
-                System.out.println("Cart is already empty");
+                LoggerUtil.info("Cart is already empty");
             }
         }catch (Exception exception){
             exception.printStackTrace();

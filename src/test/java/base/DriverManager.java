@@ -1,6 +1,7 @@
 package base;
 
 import org.openqa.selenium.WebDriver;
+import utils.LoggerUtil;
 
 import java.time.Duration;
 
@@ -10,8 +11,8 @@ public class DriverManager {
 
     public static void invokeDriver() {
         WebDriver driver = BrowserManager.setAndInvokeBrowser("chrome");
-        System.out.println("Thread ID: " + Thread.currentThread().threadId());
         driverThreadLocal.set(driver);
+        LoggerUtil.info("Driver is initialized");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(ConfigReader.getImplicitWait())));
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
@@ -25,6 +26,7 @@ public class DriverManager {
         WebDriver driver = driverThreadLocal.get();
         if (driver != null) {
             driver.quit();
+            LoggerUtil.info("Driver is closed");
         }
         driverThreadLocal.remove();
     }

@@ -7,6 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.LoggerUtil;
 
 public class BrowserManager {
 
@@ -20,11 +21,14 @@ public class BrowserManager {
             case "edge" -> setupEdgeDriver();
             default -> throw new RuntimeException("Please pass the right browser");
         };
+        LoggerUtil.info(browserName + "Invoked");
         return driver;
     }
 
     private static ChromeDriver setChromeDriver(){
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-notifications");
+        chromeOptions.addArguments("--disable-popup-blocking");
         return new ChromeDriver(chromeOptions);
     }
 

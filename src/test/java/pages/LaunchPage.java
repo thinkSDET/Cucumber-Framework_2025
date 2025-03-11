@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utils.LoggerUtil;
 
 /**
  *  userName : Testing
@@ -29,6 +30,7 @@ public class LaunchPage extends BasePage {
     }
     public void launchUrl(){
         invokeURL();
+        LoggerUtil.info("Url is launched");
         waitUntilPageGetsFullyLoaded();
     }
     public void navigateToLaunchPageAndLogin(){
