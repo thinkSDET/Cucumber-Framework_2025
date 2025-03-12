@@ -27,8 +27,6 @@ public class TestHooks {
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
-           // byte[] screenshot = ScreenshotUtil.captureScreenshot(driverManager.getDriver());
-            //scenario.attach(screenshot, "image/png", "Failed Screenshot"); // Attach to Cucumber report
             ScreenshotUtil.captureScreenshot(driverManager.getDriver());  // This will attach screenshot to Allure
         }
         driverManager.quitDriver();

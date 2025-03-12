@@ -1,6 +1,6 @@
 Feature: This feature file is verifying the place the orders.
 
-
+ @smoke
   Scenario: using default payment option
     * Launch the application as guest user
     * Navigate to the store page
@@ -14,4 +14,4 @@ Feature: This feature file is verifying the place the orders.
     * Navigate to order page by placing the order from billing details page
     * Verify the order details on order page
       | productName     | subtotal | paymentMethod        |
-      | Anchor Bracelet | $10.00   | Direct bank transfer |
+      | Anchor Bracelets | $10.00   | Direct bank transfer |
