@@ -7,19 +7,19 @@ import pages.CartPage;
 import java.util.List;
 import java.util.Map;
 
-public class CartPageStepDef {
+public class CartPageStep {
 
     private final CartPage cartPage;
-    public CartPageStepDef(PageObjectManager pageObjectManager){
+    public CartPageStep(PageObjectManager pageObjectManager){
         this.cartPage = pageObjectManager.getCartPage();
     }
 
-    @Given("Navigate to cart page")
-    public void navigate_to_cart_page() {
+    @Given("Navigate to Cart page")
+    public void navigate_to_Cart_page() {
         cartPage.navigateToCartPage();
     }
-    @Given("Verify that user can find the added product in cart page")
-    public void verify_that_user_can_find_the_added_product_in_cart_page(List<Map<String, String>> cartData) {
+    @Given("Verify that user can find the added product in Cart page")
+    public void verify_that_user_can_find_the_added_product_in_Cart_page(List<Map<String, String>> cartData) {
         cartPage.verifyAddedProductInCart(cartData);
     }
 }

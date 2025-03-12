@@ -2,28 +2,28 @@ package stepDefinitions;
 
 import testBase.common.PageObjectManager;
 import io.cucumber.java.en.Given;
-import pages.LaunchPage;
+import pages.ZeptoHomePage;
 
-public class LaunchAppPageStepDef {
+public class ZeptoHomePageStep {
     /**
      * In test automation, marking a Page Object (e.g., BillingDetailsPage) as private final ensures that its reference remains unchanged throughout the
      * test execution, preventing accidental reassignment. While final helps maintain consistency within a single test execution,
      * it does not make the object thread-safe. For parallel execution, ThreadLocal<T>
      * should be used to ensure each test thread gets its own separate instance, avoiding concurrency issues when multiple tests run simultaneously.
      */
-    private final LaunchPage launchPage;
+    private final ZeptoHomePage launchPage;
 
     // Constructor injection: PicoContainer injects PageObjectManager here
-    public LaunchAppPageStepDef(PageObjectManager pageObjectManager) {
+    public ZeptoHomePageStep(PageObjectManager pageObjectManager) {
         this.launchPage = pageObjectManager.getLaunchPage();
     }
 
-    @Given("Launch the application with valid credentials")
-    public void launch_the_application_with_valid_credentials() {
+    @Given("Launch the Zepto application with valid credentials")
+    public void launch_the_Zepto_application_with_valid_credentials() {
         launchPage.navigateToLaunchPageAndLogin();
     }
-    @Given("Launch the application as guest user")
-    public void launch_the_application_as_guest_user() {
+    @Given("Launch the Zepto application as guest user")
+    public void launch_the_Zepto_application_as_guest_user() {
         launchPage.launchUrl();
     }
 }

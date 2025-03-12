@@ -12,7 +12,7 @@ import org.testng.Assert;
  *  Email : Testing@gmail.com
  *  Password : Testing@123
  */
-public class LaunchPage extends BasePage {
+public class ZeptoHomePage extends BasePage {
     @FindBy (xpath = "(//nav[@id='primary-site-navigation']//a[text()='Account'])[1]")
     private WebElement accountLink;
     @FindBy (id = "username")
@@ -22,7 +22,7 @@ public class LaunchPage extends BasePage {
     @FindBy (xpath = "//button[@name='login']")
     private WebElement loginBtn;
 
-    public LaunchPage(WebDriver driver) {
+    public ZeptoHomePage(WebDriver driver) {
         super(driver);
     }
     public void launchUrl(){

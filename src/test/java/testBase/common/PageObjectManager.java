@@ -15,7 +15,7 @@ public class PageObjectManager {
     private BillingDetailsPage billingDetailsPage;
     private CartPage cartPage;
     private CheckOutPage checkOutPage;
-    private LaunchPage launchPage;
+    private ZeptoHomePage launchPage;
     private OrderPage orderPage;
     private StorePage storePage;
 
@@ -37,9 +37,9 @@ public class PageObjectManager {
         return cartPage;
     }
 
-    public LaunchPage getLaunchPage() {
+    public ZeptoHomePage getLaunchPage() {
         if (launchPage == null) {
-            launchPage = new LaunchPage(driver);
+            launchPage = new ZeptoHomePage(driver);
         }
         return launchPage;
     }

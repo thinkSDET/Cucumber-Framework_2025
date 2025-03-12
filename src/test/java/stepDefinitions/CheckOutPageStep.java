@@ -3,13 +3,13 @@ import testBase.common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.CheckOutPage;
 
-public class CheckOutPageStepDef {
+public class CheckOutPageStep {
     private final CheckOutPage checkOutPage;
-    public CheckOutPageStepDef(PageObjectManager pageObjectManager){
+    public CheckOutPageStep(PageObjectManager pageObjectManager){
         this.checkOutPage = pageObjectManager.getCheckOutPage();
     }
-    @Given("Navigate to checkout page")
-    public void navigate_to_checkout_page() {
+    @Given("Navigate to Checkout page")
+    public void navigate_to_Checkout_page() {
         checkOutPage.navigateToCheckoutPage();
     }
 }

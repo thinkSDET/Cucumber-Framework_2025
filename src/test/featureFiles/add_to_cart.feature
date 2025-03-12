@@ -5,11 +5,11 @@
 Feature: This feature file is validating the add to cart functionality.
   @Smoke
   Scenario: Add one quantity from Store
-    * Launch the application with valid credentials
-    * Navigate to the store page
-    * Add the product from the store page
+    * Launch the Zepto application with valid credentials
+    * Navigate to the Store page
+    * Add the product from the Store page
       | Basic Blue Jeans |
-    * Navigate to cart page
-    * Verify that user can find the added product in cart page
+    * Navigate to Cart page
+    * Verify that user can find the added product in Cart page
       | Product         | Quantity |
       | Basic Blue Jeanss | 1        |

@@ -7,15 +7,15 @@ import pages.OrderPage;
 import java.util.List;
 import java.util.Map;
 
-public class OrderPageStepDef {
+public class OrderPageStep {
 
     private final OrderPage orderPage;
-    public OrderPageStepDef(PageObjectManager pageObjectManager){
+    public OrderPageStep(PageObjectManager pageObjectManager){
         this.orderPage = pageObjectManager.getOrderPage();
     }
 
-    @Given("Verify the order details on order page")
-    public void verify_the_order_details_on_order_page(List<Map<String,String>> dataTable) {
+    @Given("Verify the order details on Order page")
+    public void verify_the_order_details_on_Order_page(List<Map<String,String>> dataTable) {
         orderPage.verifyTheOrderDetailsPage(dataTable);
     }
 }
