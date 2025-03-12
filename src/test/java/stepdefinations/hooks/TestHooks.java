@@ -9,6 +9,7 @@ import testBaseSetup.utils.LoggerUtil;
 public class TestHooks {
     private final DriverManager driverManager;
 
+    // Constructor injection: PicoContainer injects DriverManager here
     public TestHooks(DriverManager driverManager) {
         this.driverManager = driverManager;
     }
