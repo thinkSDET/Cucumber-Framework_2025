@@ -22,10 +22,8 @@ public class LaunchPage extends BasePage {
     @FindBy (xpath = "//button[@name='login']")
     private WebElement loginBtn;
 
-    public WebDriver driver;
     public LaunchPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
     }
     public void launchUrl(){
         invokeURL();
