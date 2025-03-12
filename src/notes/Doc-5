@@ -1,0 +1,102 @@
+**Complete Guide: Setting Up Allure Reporting in Your Framework**
+
+### **1. Add Allure Dependencies in pom.xml**
+Open your `pom.xml` and add the following dependencies inside `<dependencies>`:
+
+```xml
+<!-- Cucumber Allure Plugin -->
+<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-cucumber7-jvm</artifactId>
+    <version>2.29.1</version>
+</dependency>
+
+<!-- Allure Commandline (For Report Generation) -->
+<dependency>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-commandline</artifactId>
+    <version>2.33.0</version>
+</dependency>
+```
+
+### **2. Configure Allure Maven Plugin**
+Inside `<build><plugins>`, add the following:
+
+```xml
+<plugin>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-maven</artifactId>
+    <version>2.14.0</version>
+    <executions>
+        <execution>
+            <phase>verify</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+### **3. Add Configuration Files**
+Create a folder `src/test/resources/properties/` and add the following files:
+
+#### **allure.properties**
+```properties
+allure.results.directory=target/allure-results
+```
+
+#### **cucumber.properties**
+```properties
+cucumber.plugin=io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm
+```
+
+### **4. Modify Test Runner Class**
+Update `MyTestNGRunnerTest.java` as follows:
+
+```java
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
+
+@CucumberOptions(
+        glue = {"stepDefinitions"},
+        features = "src/test/featureFiles",
+        plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+        dryRun = false
+)
+public class MyTestNGRunnerTest extends AbstractTestNGCucumberTests {
+    // No DataProvider needed as parallel execution is handled by TestNG
+}
+```
+
+### **5. Execute Tests and Generate Reports**
+
+Run tests and generate reports using the following Maven commands:
+
+```sh
+# Step 1: Clean previous reports
+mvn clean
+
+# Step 2: Run the tests
+mvn test
+
+# Step 3: Generate the Allure Report
+mvn allure:report
+```
+
+### **6. View Allure Report**
+After executing the commands, open the report using:
+
+```sh
+mvn allure:serve
+```
+
+This will launch the Allure report in your default browser.
+
+---
+
+**Note:**
+- `mvn allure:report` generates the report inside `target/site/allure-maven-plugin/`
+- `mvn allure:serve` automatically opens the report in the browser
+
+

@@ -5,6 +5,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import testBase.DriverManager;
 import testBase.utils.LoggerUtil;
+import testBase.utils.ScreenshotUtil;
 
 public class TestHooks {
     private final DriverManager driverManager;
@@ -24,8 +25,11 @@ public class TestHooks {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown(Scenario scenario) {
+        if (scenario.isFailed()) {
+            byte[] screenshot = ScreenshotUtil.captureScreenshot(driverManager.getDriver());
+            scenario.attach(screenshot, "image/png", "Failed Screenshot"); // Attach to Cucumber report
+        }
         driverManager.quitDriver();
     }
-
 }

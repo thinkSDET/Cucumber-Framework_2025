@@ -47,8 +47,8 @@ public class CartPage extends BasePage {
 
     public void verifyAddedProductInCart(List<Map<String, String>> cartData){
         LoggerUtil.info("This is from add to cart-->"+ productNameFld.getText());
-        Assert.assertEquals(cartData.getFirst().get("Product"),productNameFld.getText());
-        Assert.assertEquals(cartData.getFirst().get("Quantity"),productQuantityFld.getDomProperty("value"));
+        Assert.assertEquals(cartData.get(0).get("Product"),productNameFld.getText());
+        Assert.assertEquals(cartData.get(0).get("Quantity"),productQuantityFld.getDomProperty("value"));
     }
 
 

@@ -42,14 +42,14 @@ public class BillingDetailsPage extends BasePage {
     }
 
     public void fillBillingDetails(List<Map<String, String>> data){
-        firstName.sendKeys(data.getFirst().get("firstname"));
-        lastName.sendKeys(data.getFirst().get("lastname"));
-        selectValueFromDropDown(data.getFirst().get("country"),"//ul[@id='select2-billing_country-results']//li",countryOrRegion);
-        streetAddress.sendKeys(data.getFirst().get("streetAddress"));
-        townOrCity.sendKeys(data.getFirst().get("town/city"));
-        selectValueFromDropDown(data.getFirst().get("state"),"//ul[@id='select2-billing_state-results']//li",stateOrCountry);
-        postcodeOrZipCode.sendKeys(data.getFirst().get("pinCode"));
-        emailAddress.sendKeys(data.getFirst().get("email"));
+        firstName.sendKeys(data.get(0).get("firstname"));
+        lastName.sendKeys(data.get(0).get("lastname"));
+        selectValueFromDropDown(data.get(0).get("country"),"//ul[@id='select2-billing_country-results']//li",countryOrRegion);
+        streetAddress.sendKeys(data.get(0).get("streetAddress"));
+        townOrCity.sendKeys(data.get(0).get("town/city"));
+        selectValueFromDropDown(data.get(0).get("state"),"//ul[@id='select2-billing_state-results']//li",stateOrCountry);
+        postcodeOrZipCode.sendKeys(data.get(0).get("pinCode"));
+        emailAddress.sendKeys(data.get(0).get("email"));
     }
     public void placeTheOrder(){
        /* JavascriptExecutor js = (JavascriptExecutor) driver;
