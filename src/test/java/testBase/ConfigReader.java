@@ -1,5 +1,5 @@
-package testBaseSetup;
-import testBaseSetup.utils.LoggerUtil;
+package testBase;
+import testBase.utils.LoggerUtil;
 
 import java.io.FileInputStream;
 import java.io.IOException;

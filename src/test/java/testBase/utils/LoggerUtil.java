@@ -1,4 +1,4 @@
-package testBaseSetup.utils;
+package testBase.utils;
 
 import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;
@@ -120,6 +120,14 @@ public class LoggerUtil {
             logger.error(message);
         }
     }
+
+    public static void debug(String message) {
+        Logger logger = threadLocalLogger.get();
+        if (logger != null) {
+            logger.debug(message);
+        }
+    }
+
 
     /**
      * Extracts the feature name from the scenario URI.

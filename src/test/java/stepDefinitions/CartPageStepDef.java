@@ -1,6 +1,6 @@
-package stepdefinations;
+package stepDefinitions;
 
-import testBaseSetup.common.PageObjectManager;
+import testBase.common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.CartPage;
 

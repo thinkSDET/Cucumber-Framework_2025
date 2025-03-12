@@ -5,10 +5,11 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        glue = {"stepdefinations"},
+        glue = {"stepDefinitions"},
         features = "src/test/featureFiles",
+        plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         dryRun = false
-       // tags = "@Smoke"
+      //  tags = "@Smoke"
 )
 public class MyTestNGRunnerTest  extends AbstractTestNGCucumberTests {
 

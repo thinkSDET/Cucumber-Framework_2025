@@ -12,4 +12,4 @@ Feature: This feature file is validating the add to cart functionality.
     * Navigate to cart page
     * Verify that user can find the added product in cart page
       | Product         | Quantity |
-      | Basic Blue Jeans | 1        |
+      | Basic Blue Jeanss | 1        |

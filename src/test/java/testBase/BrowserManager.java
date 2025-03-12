@@ -1,4 +1,4 @@
-package testBaseSetup;
+package testBase;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,23 +7,34 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import testBaseSetup.utils.LoggerUtil;
+import testBase.utils.LoggerUtil;
 
 public class BrowserManager {
 
 
-    public static WebDriver setAndInvokeBrowser(String browser){
+    public static WebDriver setAndInvokeBrowser(String browser) {
         WebDriver driver;
         String browserName = browser.toLowerCase().trim();
-        driver = switch (browserName) {
-            case "chrome" -> setChromeDriver();
-            case "ff", "firefox" -> setupFirefoxDriver();
-            case "edge" -> setupEdgeDriver();
-            default -> throw new RuntimeException("Please pass the right browser");
-        };
-        LoggerUtil.info(browserName + "Invoked");
+
+        switch (browserName) {
+            case "chrome":
+                driver = setChromeDriver();
+                break;
+            case "ff":
+            case "firefox":
+                driver = setupFirefoxDriver();
+                break;
+            case "edge":
+                driver = setupEdgeDriver();
+                break;
+            default:
+                throw new RuntimeException("Please pass the right browser");
+        }
+
+        LoggerUtil.info(browserName + " Invoked");
         return driver;
     }
+
 
     private static ChromeDriver setChromeDriver(){
         ChromeOptions chromeOptions = new ChromeOptions();

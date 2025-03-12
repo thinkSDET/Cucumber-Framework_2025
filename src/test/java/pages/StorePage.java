@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-import testBaseSetup.utils.LoggerUtil;
+import testBase.utils.LoggerUtil;
 
 import java.util.List;
 

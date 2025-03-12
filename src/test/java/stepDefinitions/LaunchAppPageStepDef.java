@@ -1,6 +1,6 @@
-package stepdefinations;
+package stepDefinitions;
 
-import testBaseSetup.common.PageObjectManager;
+import testBase.common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.LaunchPage;
 
@@ -12,6 +12,8 @@ public class LaunchAppPageStepDef {
      * should be used to ensure each test thread gets its own separate instance, avoiding concurrency issues when multiple tests run simultaneously.
      */
     private final LaunchPage launchPage;
+
+    // Constructor injection: PicoContainer injects PageObjectManager here
     public LaunchAppPageStepDef(PageObjectManager pageObjectManager) {
         this.launchPage = pageObjectManager.getLaunchPage();
     }
