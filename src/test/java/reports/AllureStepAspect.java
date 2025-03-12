@@ -18,7 +18,6 @@ public class AllureStepAspect {
         String methodName = joinPoint.getSignature().getName();
         String className = joinPoint.getSignature().getDeclaringTypeName();
         String stepName = className + " - " + methodName; // Include class name
-
         return Allure.step(stepName, () -> joinPoint.proceed());
     }
 }
