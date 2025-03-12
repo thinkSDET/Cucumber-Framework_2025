@@ -1,4 +1,4 @@
-package testBaseSetup;
+package testBase;
 
 public class ConfigManager {
 

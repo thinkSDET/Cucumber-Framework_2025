@@ -1,10 +1,10 @@
-package stepdefinations.hooks;
+package stepDefinitions.hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import testBaseSetup.DriverManager;
-import testBaseSetup.utils.LoggerUtil;
+import testBase.DriverManager;
+import testBase.utils.LoggerUtil;
 
 public class TestHooks {
     private final DriverManager driverManager;

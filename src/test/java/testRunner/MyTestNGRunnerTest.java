@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        glue = {"stepdefinations"},
+        glue = {"stepDefinitions"},
         features = "src/test/featureFiles",
         dryRun = false
        // tags = "@Smoke"

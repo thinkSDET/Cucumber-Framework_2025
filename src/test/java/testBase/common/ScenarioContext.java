@@ -1,4 +1,4 @@
-package testBaseSetup.common;
+package testBase.common;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,19 +6,19 @@ import java.util.Map;
 /**
  * ScenarioContext acts as a globally accessible, thread-safe singleton storage for sharing data between steps and pages.
  */
-public class TestDataContext {
-    private static final TestDataContext INSTANCE = new TestDataContext(); // Singleton Instance
+public class ScenarioContext {
+    private static final ScenarioContext INSTANCE = new ScenarioContext(); // Singleton Instance
     private final ThreadLocal<Map<String, Object>> scenarioData = ThreadLocal.withInitial(HashMap::new);
 
     /**
      * Private constructor to enforce Singleton pattern.
      */
-    private TestDataContext() {}
+    private ScenarioContext() {}
 
     /**
      * Provides global access to the single instance of ScenarioContext.
      */
-    public static TestDataContext getInstance() {
+    public static ScenarioContext getInstance() {
         return INSTANCE;
     }
 

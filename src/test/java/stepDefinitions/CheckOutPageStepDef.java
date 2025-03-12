@@ -1,5 +1,5 @@
-package stepdefinations;
-import testBaseSetup.common.PageObjectManager;
+package stepDefinitions;
+import testBase.common.PageObjectManager;
 import io.cucumber.java.en.Given;
 import pages.CheckOutPage;
 
