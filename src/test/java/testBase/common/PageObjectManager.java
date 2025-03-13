@@ -18,6 +18,7 @@ public class PageObjectManager {
     private ZeptoHomePage launchPage;
     private OrderPage orderPage;
     private StorePage storePage;
+    private MenPage menPage;
 
     public PageObjectManager(DriverManager driverManager) {
         this.driver = driverManager.getDriver();
@@ -63,5 +64,11 @@ public class PageObjectManager {
             storePage = new StorePage(driver);
         }
         return storePage;
+    }
+    public MenPage getMePage() {
+        if (menPage == null) {
+            menPage = new MenPage(driver);
+        }
+        return menPage;
     }
 }
