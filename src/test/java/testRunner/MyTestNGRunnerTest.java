@@ -9,14 +9,14 @@ import org.testng.annotations.DataProvider;
         features = "src/test/featureFiles",
         plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         dryRun = false,
-        monochrome = true,
-        tags = "@adduser"
+        monochrome = true
+       // tags = "@adduser"
 )
 public class MyTestNGRunnerTest  extends AbstractTestNGCucumberTests {
 
-    @DataProvider(parallel = true)
+   /* @DataProvider(parallel = true)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();
-    }
+    }*/
 }
