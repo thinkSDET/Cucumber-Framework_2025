@@ -8,13 +8,13 @@ import org.testng.annotations.DataProvider;
         glue = {"stepDefinitions"},
         features = "src/test/featureFiles",
         plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
-        dryRun = false,
+        dryRun = true,
         monochrome = true
        // tags = "@regression1"
 )
 public class MyTestNGRunnerTest  extends AbstractTestNGCucumberTests {
 
-    @DataProvider(parallel = false)  // ✅ Force Scenario Outline to run sequentially
+    @DataProvider(parallel = true)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();

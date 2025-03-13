@@ -22,8 +22,8 @@ public class ZeptoHomePageStep {
     public void launch_the_Zepto_application_with_valid_credentials() {
         launchPage.navigateToLaunchPageAndLogin();
     }
-    @Given("Launch the Zepto application as guest user")
-    public void launch_the_Zepto_application_as_guest_user() {
+    @Given("Launch the Zepto application")
+    public void launch_the_Zepto_application() {
         launchPage.launchUrl();
     }
 

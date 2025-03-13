@@ -18,6 +18,8 @@ Feature: This feature file is validating the add to cart functionality.
     * Close the Zepto application
 
  # this is scenario outline and we can pass the multiple data in this way as well
+ # this is working fine once you run sequentially but not for parallel execution, because trying to login with same user account to cart is conflicting
+  # so here try to understand the concept of Scenario Outline: I mean how we can pass the values via Scenario Outline:
   @regression1
   Scenario Outline: Add a <multiple product> from Men Page and verify that added product should be visible on Cart Page
     * Launch the Zepto application with valid credentials
@@ -34,4 +36,3 @@ Feature: This feature file is validating the add to cart functionality.
       | multiple product |
       | Red Shoes        |
       | Green Tshirt     |
-      | Faint Blue Jeans |

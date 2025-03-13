@@ -19,6 +19,7 @@ public class PageObjectManager {
     private OrderPage orderPage;
     private StorePage storePage;
     private MenPage menPage;
+    private AccountPage accountPage;
 
     // Injecting PicoContainer's DriverManager
     public PageObjectManager(DriverManager driverManager) {
@@ -71,5 +72,11 @@ public class PageObjectManager {
             menPage = new MenPage(driver);
         }
         return menPage;
+    }
+    public AccountPage getAccountPage () {
+        if (accountPage == null) {
+            accountPage = new AccountPage(driver);
+        }
+        return accountPage;
     }
 }
