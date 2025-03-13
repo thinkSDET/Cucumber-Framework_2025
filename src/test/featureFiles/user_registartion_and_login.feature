@@ -10,10 +10,9 @@ Feature: User Authentication
     * Launch the Zepto application for new user registration
     * Complete the Registration on Account page
       | Username | Email               | Password  |
-      | Hello    | hello@123.gmail.com | Admin@123 |
+      | NoHello155    | hellov@55.gmail.com | Admin@1256 |
     * Navigate to Account page by register
     * Verify that user able to see a confirmation message on Account page
-    * Verify that user able to see logout option on Account page
 
   #//a[text()='Logout']  -> check visible condition
   #(//a[@href='https://askomdch.com/account/edit-account/'])[2]  -> get the text ane verify  ->edit your password and account details

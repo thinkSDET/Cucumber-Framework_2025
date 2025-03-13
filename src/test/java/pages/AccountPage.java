@@ -22,6 +22,9 @@ public class AccountPage extends BasePage {
     @FindBy(name = "register")
     private WebElement registerBtn;
 
+    @FindBy(xpath = "(//a[@href='https://askomdch.com/account/edit-account/'])[2]")
+    private WebElement confirmationMessage;
+
 
     public AccountPage(WebDriver driver) {
         super(driver);
@@ -32,8 +35,15 @@ public class AccountPage extends BasePage {
             userName.sendKeys(testData.get("Username"));
             email.sendKeys(testData.get("Email"));
             password.sendKeys(testData.get("Password"));
-            registerBtn.click();
         });
-       // registerBtn.click();
+    }
+    public void clickOnRegisterBtn(){
+        registerBtn.click();
+    }
+
+    public String verifyConfirmationMessageForNewUserRegistration(){
+        waitForElementToVisible(confirmationMessage);
+        System.out.println(confirmationMessage.getText());
+        return confirmationMessage.getText();
     }
 }
