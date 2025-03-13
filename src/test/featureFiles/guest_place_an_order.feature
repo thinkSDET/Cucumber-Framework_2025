@@ -2,7 +2,7 @@ Feature: This feature file is verifying the place the orders.
 
   @smoke
   Scenario: using default payment option
-    * Launch the Zepto application as guest user
+    * Launch the Zepto application
     * Navigate to the Store page
     * Add the product from the Store page
       | Anchor Bracelet |

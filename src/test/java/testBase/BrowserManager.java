@@ -41,6 +41,7 @@ public class BrowserManager {
         if(ConfigManager.getHeadLessMode()){
             chromeOptions.addArguments("--headless=new");  // Run in headless mode
         }
+        chromeOptions.addArguments("--incognito");  // Opens a fresh session for every test
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--disable-popup-blocking");
         return new ChromeDriver(chromeOptions);

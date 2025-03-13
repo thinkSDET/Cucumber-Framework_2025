@@ -18,9 +18,12 @@ public class PageObjectManager {
     private ZeptoHomePage launchPage;
     private OrderPage orderPage;
     private StorePage storePage;
+    private MenPage menPage;
+    private AccountPage accountPage;
 
+    // Injecting PicoContainer's DriverManager
     public PageObjectManager(DriverManager driverManager) {
-        this.driver = driverManager.getDriver();
+        this.driver = driverManager.getDriver();  // Each thread gets its own driver instance
     }
 
     public BillingDetailsPage getBillingDetailsPage() {
@@ -63,5 +66,17 @@ public class PageObjectManager {
             storePage = new StorePage(driver);
         }
         return storePage;
+    }
+    public MenPage getMePage() {
+        if (menPage == null) {
+            menPage = new MenPage(driver);
+        }
+        return menPage;
+    }
+    public AccountPage getAccountPage () {
+        if (accountPage == null) {
+            accountPage = new AccountPage(driver);
+        }
+        return accountPage;
     }
 }
