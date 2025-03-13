@@ -6,24 +6,25 @@ import testBase.utils.LoggerUtil;
 import java.time.Duration;
 
 public class DriverManager {
-    private WebDriver driver;
+    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
     public WebDriver getDriver() {
-        if (driver == null) {
-            driver = BrowserManager.setAndInvokeBrowser(ConfigManager.getBrowser());
-            LoggerUtil.info("Driver is initialized");
+        if (driverThreadLocal.get() == null) {
+            WebDriver driver = BrowserManager.setAndInvokeBrowser(ConfigManager.getBrowser());
+            LoggerUtil.info("Thread ID: " + Thread.currentThread().getId() + " - Driver initialized");
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(ConfigReader.getImplicitWait())));
             driver.manage().window().maximize();
             driver.manage().deleteAllCookies();
+            driverThreadLocal.set(driver);  // Store the driver instance for the current thread
         }
-        return driver;
+        return driverThreadLocal.get();
     }
 
     public void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            LoggerUtil.info("Driver is closed");
-            driver = null;
+        if (driverThreadLocal.get() != null) {
+            driverThreadLocal.get().quit();
+            LoggerUtil.info("Thread ID: " + Thread.currentThread().getId() + " - Driver closed");
+            driverThreadLocal.remove();  // Remove driver instance from ThreadLocal
         }
     }
 }

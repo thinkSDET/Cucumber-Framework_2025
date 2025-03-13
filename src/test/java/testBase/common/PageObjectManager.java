@@ -20,8 +20,9 @@ public class PageObjectManager {
     private StorePage storePage;
     private MenPage menPage;
 
+    // Injecting PicoContainer's DriverManager
     public PageObjectManager(DriverManager driverManager) {
-        this.driver = driverManager.getDriver();
+        this.driver = driverManager.getDriver();  // Each thread gets its own driver instance
     }
 
     public BillingDetailsPage getBillingDetailsPage() {

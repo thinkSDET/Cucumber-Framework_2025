@@ -26,4 +26,9 @@ public class ZeptoHomePageStep {
     public void launch_the_Zepto_application_as_guest_user() {
         launchPage.launchUrl();
     }
+
+    @Given("Close the Zepto application")
+    public void close_the_zepto_application() {
+
+    }
 }

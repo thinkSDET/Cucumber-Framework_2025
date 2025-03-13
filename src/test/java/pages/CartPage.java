@@ -51,19 +51,22 @@ public class CartPage extends BasePage {
         Assert.assertEquals(cartData.get(0).get("Quantity"),productQuantityFld.getDomProperty("value"));
     }
 
-
     public void clearCart(){
         try {
             int cartItem = Integer.parseInt(cartCount.getText());
+            System.out.println("Total item in cart->"+ cartItem);
             if(cartItem>0){
+                for(int i=0;i<cartItem;i++){
+                    moveToAnElement(shoppingCartIcon);
+                    clickOnElement(removeItemsFromCart);
+                    System.out.println(i + "-item has been removed");
+                }
                 moveToAnElement(shoppingCartIcon);
-                clickOnElement(removeItemsFromCart);
-                waitForElementToBeInVisible(removeItemsFromCart);
                 Assert.assertEquals(waitForElementToVisible(clearCartMessage).getText(),"No products in the cart.","Please check cart is not empty");
                 LoggerUtil.info("cart is cleared now");
             }
             else {
-                LoggerUtil.info("Cart is already empty");
+                LoggerUtil.info("cart is already empty");
             }
         }catch (Exception exception){
             exception.printStackTrace();

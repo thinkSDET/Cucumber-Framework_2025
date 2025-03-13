@@ -22,4 +22,9 @@ public class CartPageStep {
     public void verify_that_user_can_find_the_added_product_in_Cart_page(List<Map<String, String>> cartData) {
         cartPage.verifyAddedProductInCart(cartData);
     }
+
+    @Given("Navigate to Cart page to clear the cart")
+    public void navigate_to_cart_page_to_clear_the_cart() {
+       cartPage.clearCart();
+    }
 }

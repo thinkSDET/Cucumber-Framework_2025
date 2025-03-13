@@ -11,20 +11,17 @@ import testBase.utils.LoggerUtil;
 import java.util.List;
 
 public class StorePage extends BasePage {
-    CartPage cartPage;
     @FindBy(xpath = "(//nav[@id='primary-site-navigation']//a[text()='Store'])[1]")
     private WebElement storeLink;
 
     public StorePage(WebDriver driver) {
         super(driver);
-        cartPage = new CartPage(driver);
     }
 
     public void navigateToStorePage(){
         storeLink.click();
         LoggerUtil.info(storeLink + "clicked");
         Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/store/","please check the url");
-        cartPage.clearCart();
     }
     public void addTheProduct(List<String> productNames){
        for(String productName : productNames){
