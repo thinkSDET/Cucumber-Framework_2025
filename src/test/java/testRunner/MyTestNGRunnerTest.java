@@ -8,7 +8,8 @@ import org.testng.annotations.DataProvider;
         glue = {"stepDefinitions"},
         features = "src/test/featureFiles",
         plugin = {"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
-        dryRun = false
+        dryRun = false,
+        monochrome = true
       //  tags = "@Smoke"
 )
 public class MyTestNGRunnerTest  extends AbstractTestNGCucumberTests {
