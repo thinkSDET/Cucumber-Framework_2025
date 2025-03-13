@@ -1,6 +1,6 @@
 Feature: This feature file is verifying the place the orders.
 
- @smoke
+  @smoke
   Scenario: using default payment option
     * Launch the Zepto application as guest user
     * Navigate to the Store page
@@ -14,4 +14,4 @@ Feature: This feature file is verifying the place the orders.
     * Navigate to order page by placing the order from Billing details page
     * Verify the order details on Order page
       | productName     | subtotal | paymentMethod        |
-      | Anchor Bracelets | $10.00   | Direct bank transfer |
+      | Anchor Bracelet | $10.00   | Direct bank transfer |

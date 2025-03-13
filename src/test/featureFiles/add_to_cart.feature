@@ -3,6 +3,7 @@
 # Press Ctrl + Alt + L (Windows/Linux)
 #
 Feature: This feature file is validating the add to cart functionality.
+
   @Smoke
   Scenario: Add one quantity from Store
     * Launch the Zepto application with valid credentials
@@ -11,5 +12,5 @@ Feature: This feature file is validating the add to cart functionality.
       | Basic Blue Jeans |
     * Navigate to Cart page
     * Verify that user can find the added product in Cart page
-      | Product         | Quantity |
-      | Basic Blue Jeanss | 1        |
+      | Product          | Quantity |
+      | Basic Blue Jeans | 1        |
