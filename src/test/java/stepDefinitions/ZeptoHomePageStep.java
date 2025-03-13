@@ -31,4 +31,9 @@ public class ZeptoHomePageStep {
     public void close_the_zepto_application() {
 
     }
+
+    @Given("Launch the Zepto application for new user registration")
+    public void launch_the_zepto_application_for_new_user_registration() {
+        launchPage.navigateToNewUserRegister();
+    }
 }

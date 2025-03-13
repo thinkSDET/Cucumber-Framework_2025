@@ -4,13 +4,13 @@ Feature: User Authentication
 
 
   # this is a kind of data driven approach for registration form (in 3rd step, it is List of Map with key and value)
+  # this is more readable in terms of Key-value pair
+  @adduser
   Scenario: Successful User Registration
-    * Launch the Zepto application
-    * Navigate to Account page
+    * Launch the Zepto application for new user registration
     * Complete the Registration on Account page
-      | Username | Hello               |
-      | Email    | hello@123.gmail.com |
-      | Password | Admin@123           |
+      | Username | Email               | Password  |
+      | Hello    | hello@123.gmail.com | Admin@123 |
     * Navigate to Account page by register
     * Verify that user able to see a confirmation message on Account page
     * Verify that user able to see logout option on Account page

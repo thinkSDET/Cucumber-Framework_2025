@@ -37,4 +37,9 @@ public class ZeptoHomePage extends BasePage {
         loginBtn.click();
         Assert.assertEquals(getCurrentUrl(),"https://askomdch.com/account/","Please check the url");
     }
+
+    public void navigateToNewUserRegister(){
+        launchUrl();
+        accountLink.click();
+    }
 }

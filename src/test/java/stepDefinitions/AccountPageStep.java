@@ -1,12 +1,10 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import pages.AccountPage;
-import pages.BillingDetailsPage;
 import testBase.common.PageObjectManager;
-
-import java.util.List;
-import java.util.Map;
+import utility.DataTableMapper;
 
 public class AccountPageStep {
 
@@ -16,15 +14,10 @@ public class AccountPageStep {
         this.accountPage = pageObjectManager.getAccountPage();
     }
 
-    @Given("Navigate to Account page")
-    public void navigate_to_account_page() {
-
-    }
-
-    @Given("Complete the Registration on Account page")
-    public void complete_the_registration_on_account_page(List<Map<String, String>> testData) {
-
-    }
+   @Given("Complete the Registration on Account page")
+   public void complete_the_registration_on_account_page(DataTable dataTable) {
+       accountPage.fillNewUserRegistrationForm(DataTableMapper.convertToMap(dataTable));
+   }
 
     @Given("Navigate to Account page by register")
     public void navigate_to_account_page_by_register() {
