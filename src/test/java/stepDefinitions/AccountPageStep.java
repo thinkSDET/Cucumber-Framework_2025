@@ -28,8 +28,4 @@ public class AccountPageStep {
     public void verify_that_user_able_to_see_a_confirmation_message_on_account_page() {
         Assert.assertTrue(accountPage.verifyConfirmationMessageForNewUserRegistration().contains("edit your password and account details"));
     }
-  /*  @Given("Verify that user able to see logout option on Account page")
-    public void verify_that_user_able_to_see_logout_option_on_account_page() {
-
-    }*/
 }
