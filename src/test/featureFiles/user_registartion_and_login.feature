@@ -9,8 +9,8 @@ Feature: User Authentication
   Scenario: Successful User Registration
     * Launch the Zepto application for new user registration
     * Complete the Registration on Account page
-      | Username | Email               | Password  |
-      | NoHello155    | hellov@55.gmail.com | Admin@1256 |
+      | Username | Email   | Password   |
+      | dynamic  | dynamic | Admin@1256 |
     * Navigate to Account page by register
     * Verify that user able to see a confirmation message on Account page
 
