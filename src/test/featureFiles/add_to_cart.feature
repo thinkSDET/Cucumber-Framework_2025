@@ -1,7 +1,7 @@
 #you can manually format your feature files using IntelliJ’s built-in Reformat Code feature:
 # Open the .feature file.
 # Press Ctrl + Alt + L (Windows/Linux)
-#
+# Rules to write feature file -> do not expose anything which confidential and not related to scenarios [I mean events]
 Feature: This feature file is validating the add to cart functionality.
 
   @Smoke
