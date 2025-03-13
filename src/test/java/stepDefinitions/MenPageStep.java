@@ -19,4 +19,5 @@ public class MenPageStep {
     public void add_the_from_the_men_page(String product) {
         menPage.addProducts(product);
     }
+
 }
